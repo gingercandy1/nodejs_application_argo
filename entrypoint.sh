@@ -305,4 +305,3 @@ check_dependencies
 generate_config
 generate_argo
 [ -e argo.sh ] && bash argo.sh 2>&1 &
-wait
