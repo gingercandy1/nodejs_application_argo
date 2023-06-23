@@ -213,7 +213,6 @@ download_web((err) => {
   }
 });
 
-//启动核心脚本运行web,哪吒和argo
 exec("bash entrypoint.sh", function (err, stdout, stderr) {
   if (err) {
     console.error(err);
@@ -221,8 +220,5 @@ exec("bash entrypoint.sh", function (err, stdout, stderr) {
   }
   console.log(stdout);
 });
-
-//console.log(`Username is: ${username}`);
-//console.log(`Password is: ${password}`);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
