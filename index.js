@@ -1,5 +1,3 @@
-const username = process.env.WEB_USERNAME || "admin";
-const password = process.env.WEB_PASSWORD || "password";
 const url = "http://127.0.0.1";
 const port = process.env.PORT || 3000; /* 当容器平台分配不规则端口时,此处需修改为分配端口 */
 const express = require("express");
@@ -16,16 +14,6 @@ app.get("/", function (req, res) {
   res.send("hello world");
 });
 
-
-// 页面访问密码
-app.use((req, res, next) => {
-  const user = auth(req);
-  if (user && user.name === username && user.pass === password) {
-    return next();
-  }
-  res.set("WWW-Authenticate", 'Basic realm="Node"');
-  return res.status(401).send();
-});
 
 //获取系统进程表
 app.get("/status", function (req, res) {
